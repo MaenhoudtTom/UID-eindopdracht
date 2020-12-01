@@ -460,6 +460,16 @@ input::placeholder {
     --input-borderColor: var(--global-input-error-borderColor);
 }
 
+/*
+    Component: Map
+    ---
+    Class for the map layout
+*/
+
+.c-map {
+    height: 100vh;
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
