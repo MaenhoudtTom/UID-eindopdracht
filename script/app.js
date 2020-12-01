@@ -4,7 +4,7 @@ const provider = "https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png";
 const copyright =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>';
 
-const key = "6726094d9b499c5b768675800d6e89cd";
+const key = "";
 let map, layergroup, latitude, longitude, data;
 
 const showResults = function () {
