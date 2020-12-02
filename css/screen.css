@@ -1,14 +1,44 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
-
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
 
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
-    
+    /* colors */
+    --global-color: #FEF086;
+    --global-color-beta: #235A68;
+
+    /* forms */
+    --global-placeholder-color: var(--global-color-beta);
+    --global-input-backgroundColor: white;
+    --global-input-color: var(--global-color-beta);
+    --global-input-borderColor: #F5C352;
+    --global-input-hover-borderColor: #FEF086;
+    --global-input-focus-bordercolor: #FEF4AC;
+    --global-input-focus-boxShadowColor: #FEF7C1;
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+
+    --global-color-error: #EF6C00;
+    --global-input-error-borderColor: #EF6C00;
+
+    /* border */
+    --global-border-width: 3px;
+    --global-borderRadius: 4px;
+
+    /* Whitespace */
+    --global-baseline: calc(1rem/4); /* = 5px */
+    --global-whitespace-xxs: var(--global-baseline); /* = 5px */
+    --global-whitespace-xs: calc(var(--global-baseline) * 2); /* = 10px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 3); /* = 15px */
+    --global-whitespace-md: calc(var(--global-baseline) * 4); /* = 20px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 5); /* = 25px */
+    --global-whitespace-xl: calc(var(--global-baseline) * 6); /* = 30px */
+
+    --global-transition-timing-alpha: .1s ease-out;
 }
 
 /*------------------------------------*\
@@ -22,14 +52,14 @@
 */
 
 html {
-    font-size: 15px;
-    line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: #FEF086;
+    font-size: 125%;
+    line-height: 1.2;
+    font-family: 'Work Sans', Helvetica, arial, sans-serif;
+    color: var(--global-color);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #235A68;
+    background-color: var(--global-color-beta);
 }
 
 p,
@@ -56,13 +86,13 @@ figure {
 */
 
 ::-moz-selection {
-    background: var(--color-alpha);
+    background: var(--global-color);
     color: white;
     text-shadow: none;
 }
 
 ::selection {
-    background: var(--color-alpha);
+    background: var(--global-color);
     color: white;
     text-shadow: none;
 }
@@ -95,30 +125,30 @@ h3 {
 }
 
 h1 {
-    font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+    font-size: 2.25rem;
+    line-height: 2.65;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 h2 {
-    font-size: 32px;
-    line-height: 40px;
-    margin: 0 0 24px;
+    font-size: 1.5rem;
+    line-height: 2;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 h3 {
-    font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 h4,
 h5,
 h6 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: 1.2;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 p,
@@ -128,12 +158,12 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 ul,
 ol {
-    padding-left: 24px;
+    padding-left: var(--global-whitespace-lg);
 }
 
 li ul,
@@ -212,6 +242,7 @@ input::placeholder {
     position: relative;
     padding: 24px 24px 0;
     display: flow-root; /* New solution! Fixes margin collapsing */
+    align-items: center;
 }
 
 /* size modifiers */
@@ -442,22 +473,107 @@ input::placeholder {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 100%;
-    /* border: var(--global-borderWidth) solid var(--input-borderColor, var(--global-input-borderColor)); */
-    /* border-radius: var(--global-borderRadius);
+    width: 80%;
+    border: var(--global-border-width) solid var(--input-borderColor, var(--global-input-borderColor));
+    border-radius: var(--global-borderRadius);
     background-color: var(--global-input-backgroundColor);
-    color: var(--global-input-color); */
+    color: var(--global-input-color);
     font-family: inherit;
-    font-size: 16px;
-    /* line-height: calc(var(--global-baseline) * 3); */
-    /* padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md); */
+    font-size: 1rem;
+    padding: var(--global-whitespace-sm);
     outline: none;
-    /* transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha); */
+    transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+}
+
+.c-input:hover {
+    border-color: var(--global-input-hover-borderColor);
+    box-shadow: var(--global-input-focus-boxShadow);
+}
+
+.c-input:focus,
+.c-input:active {
+    border-color: var(--global-input-focus-bordercolor);
+    box-shadow: var(--global-input-focus-boxShadow);
 }
 
 .has-error {
     --label-color: var(--global-color-error);
     --input-borderColor: var(--global-input-error-borderColor);
+}
+
+/*
+    Component: Label
+    ---
+    Class to put on all form labels
+*/
+
+.c-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    padding-bottom: var(--global-whitespace-sm);
+    font-size: inherit;
+    line-height: inherit;
+    color: var(--label-color, var(--global-color));
+    width: 80%;
+}
+
+/*
+    Component: Button
+    ---
+    Class to put on form buttons or
+*/
+
+.c-button {
+    --button-borderColor: #F5C352 ;
+    --button-hover-borderColor: #FEF7C1;
+    --button-active-borderColor: #F5C352;
+    --button-focus-borderColor: #FEF4AC;
+    --button-backgroundColor: #FEF086; 
+    --button-hover-backgroundColor: #FEF4AC;
+    --button-active-backgroundColor: #FADA6C;
+    --button-focus-backgroundColor: #F5C352;
+    --button-focus-boxShadow: #FEF7C1;
+    --button-active-boxShadow: #EC9E57;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--global-borderRadius);
+    border: 1px solid var(--button-borderColor);
+    background-color: var(--button-backgroundColor);
+    color: var(--global-color-beta);
+    line-height: calc(var(--global-baseline) * 5);
+    padding: calc(var(--global-baseline) * 3 - var(--global-border-width)) var(--global-whitespace-md);
+    width: 80%;
+    outline: none;
+    box-shadow: 0;
+    transition: all var(--global-transition-timing-alpha);
+}
+
+.c-button:hover {
+    border-color: var(--button-hover-borderColor);
+    background-color: var(--button-hover-backgroundColor);
+}
+
+.c-button:focus {
+    background-color: var(--button-focus-backgroundColor);
+    border-color: var(--button-focus-borderColor);
+    box-shadow: var(--button-focus-boxShadow);
+}
+
+.c-button:active {
+    background-color: var(--button-active-backgroundColor);
+    border-color: var(--button-active-borderColor);
+    box-shadow: var(--button-active-boxShadow, 0);
+}
+
+/*
+    Component: Image
+    ---
+    Class for the mock up
+*/
+
+.c-image {
+    width: 70%;
 }
 
 /*
@@ -470,9 +586,16 @@ input::placeholder {
     height: 100vh;
 }
 
-.c-search {
-    text-align: center;
-    margin: auto;
+.c-main {
+    min-height: 100vh;
+    display: grid;
+    grid-gap: var(--global-whitespace-xl);
+}
+
+@media (min-width: 49.6em) {
+    .c-main {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /*------------------------------------*\
