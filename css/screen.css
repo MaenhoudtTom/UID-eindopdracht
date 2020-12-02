@@ -470,6 +470,11 @@ input::placeholder {
     height: 100vh;
 }
 
+.c-search {
+    text-align: center;
+    margin: auto;
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
