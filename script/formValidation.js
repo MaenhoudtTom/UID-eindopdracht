@@ -1,4 +1,5 @@
-let email = {};
+let email = {},
+  keepMePostedButton;
 
 // helper functies
 const isValidEmailAddress = function (emailAddress) {
@@ -39,11 +40,13 @@ const addErrors = function (formField, errorField, errorMessage) {
   console.log(errorField);
   errorField.style.display = "block";
   errorField.innerHTML = errorMessage;
+  keepMePostedButton.disabled = true;
 };
 
 const removeErrors = function (formField, errorField) {
   formField.classList.remove("has-error");
   errorField.style.display = "none";
+  keepMePostedButton.disabled = false;
 };
 
 const doubleCheckEmailAdress = function () {

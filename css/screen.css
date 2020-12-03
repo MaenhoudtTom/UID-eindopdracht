@@ -9,8 +9,11 @@
 
 :root {
     /* colors */
+    /* --global-color: #FEF086;
+    --global-color-beta: #235A68; */
+
     --global-color: #FEF086;
-    --global-color-beta: #235A68;
+    --global-color-beta: #007A97;
 
     /* forms */
     --global-placeholder-color: var(--global-color-beta);
@@ -132,7 +135,7 @@ h1 {
 
 h2 {
     font-size: 1.5rem;
-    line-height: 2;
+    line-height: 1.5;
     margin: 0 0 var(--global-whitespace-lg);
 }
 
@@ -458,10 +461,18 @@ input::placeholder {
 \*------------------------------------*/
 
 /*
-    Component: Logo
+    Component: Form
     ---
-    Website main logo
+    Everything that has something to do with a form
 */
+
+.c-form {
+    margin-top: calc(var(--global-whitespace-xl) * 2);
+}
+
+.c-form-field {
+    margin-top: var(--global-whitespace-xl);
+}
 
 /*
     Component: Input
@@ -473,7 +484,7 @@ input::placeholder {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 80%;
+    width: 100%;
     border: var(--global-border-width) solid var(--input-borderColor, var(--global-input-borderColor));
     border-radius: var(--global-borderRadius);
     background-color: var(--global-input-backgroundColor);
@@ -515,7 +526,7 @@ input::placeholder {
     font-size: inherit;
     line-height: inherit;
     color: var(--label-color, var(--global-color));
-    width: 80%;
+    width: 100%;
 }
 
 /*
@@ -535,6 +546,8 @@ input::placeholder {
     --button-focus-backgroundColor: #F5C352;
     --button-focus-boxShadow: #FEF7C1;
     --button-active-boxShadow: #EC9E57;
+    --button-disabled-backgroundColor: #889497;
+    --button-disabled-color: #000000;
     font-size: 1rem;
     font-weight: 600;
     border-radius: var(--global-borderRadius);
@@ -543,10 +556,10 @@ input::placeholder {
     color: var(--global-color-beta);
     line-height: calc(var(--global-baseline) * 5);
     padding: calc(var(--global-baseline) * 3 - var(--global-border-width)) var(--global-whitespace-md);
-    width: 80%;
     outline: none;
     box-shadow: 0;
     transition: all var(--global-transition-timing-alpha);
+    pointer-events: auto;
 }
 
 .c-button:hover {
@@ -566,6 +579,13 @@ input::placeholder {
     box-shadow: var(--button-active-boxShadow, 0);
 }
 
+.c-button:disabled {
+    background-color: var(--button-disabled-backgroundColor);
+    border-color: var(--button-disabled-backgroundColor);
+    color: var(--button-disabled-color);
+    box-shadow: none;
+}
+
 /*
     Component: Image
     ---
@@ -573,6 +593,8 @@ input::placeholder {
 */
 
 .c-image {
+    text-align: center;
+    margin: auto;
     width: 70%;
 }
 
