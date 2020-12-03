@@ -14,10 +14,6 @@ const searchControl = new GeoSearch.GeoSearchControl({
 });
 let map, layergroup, latitude, longitude, data, input;
 
-const logResult = function (result) {
-  console.log(result);
-};
-
 const addMarker = function () {
   let uvLevel;
   let colorCircle;
@@ -52,7 +48,7 @@ const addMarker = function () {
     fillColor: colorCircle,
     fillOpacity: 0.3,
     radius: 1000,
-  }).addTo(map);
+  }).addTo(layergroup);
 };
 
 const createMap = function () {
@@ -71,10 +67,13 @@ const createMap = function () {
     longitude = result.location.x;
     getAPI();
   });
-  addMarker();
+  getAPI();
+//   addMarker();
 };
 
 const getAPI = async () => {
+
+    //opgelet bij het veelvoudig opvragen van data, dagelijks limit van toepassing -> 403: forbidden als gevolg
   data = await fetch(`https://api.openuv.io/api/v1/uv?lat=${latitude}&lng=${longitude}`, {
     headers: {
       "x-access-token": key,
@@ -82,15 +81,17 @@ const getAPI = async () => {
   })
     .then((r) => r.json())
     .catch((err) => console.error("An error occured:", err));
-//   console.log(data);
-  createMap();
+    //   console.log(data);
+    addMarker();
+//   createMap();
 };
 
 const processCoords = function (posistion) {
     // console.log(posistion);
     latitude = posistion.coords.latitude;
     longitude = posistion.coords.longitude;
-    getAPI();
+    // getAPI();
+    createMap();
 }
 
 const init = function () {
