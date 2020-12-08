@@ -494,7 +494,6 @@ input::placeholder {
 }
 
 .c-main {
-    min-height: 100vh;
     display: grid;
     grid-gap: var(--global-whitespace-xl);
 }
