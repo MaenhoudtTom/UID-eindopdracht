@@ -425,7 +425,8 @@ input::placeholder {
     --button-hover-borderColor: #FEF7C1;
     --button-active-borderColor: #F5C352;
     --button-focus-borderColor: #FEF4AC;
-    --button-backgroundColor: #FEF086; 
+    /* --button-backgroundColor: #FEF086;  */
+    --button-backgroundColor: #F5C352;
     --button-hover-backgroundColor: #FEF4AC;
     --button-active-backgroundColor: #FADA6C;
     --button-focus-backgroundColor: #F5C352;
@@ -436,7 +437,7 @@ input::placeholder {
     font-size: 1rem;
     font-weight: 600;
     border-radius: var(--global-borderRadius);
-    border: 1px solid var(--button-borderColor);
+    border: 2px solid var(--button-borderColor);
     background-color: var(--button-backgroundColor);
     color: var(--global-color-beta);
     line-height: calc(var(--global-baseline) * 5);
