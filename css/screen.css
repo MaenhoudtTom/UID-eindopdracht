@@ -505,6 +505,16 @@ input::placeholder {
     }
 }
 
+/*
+    Component: Popup
+    ---
+    Class for the popup on the map
+*/
+
+.c-popup {
+    color: var(--global-color-beta);
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
